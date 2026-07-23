@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mastering French: Bien vs. Beaucoup vs. Très vs. Trop</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .gradient-mesh {
+            background-color: #f8fafc;
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.1) 0px, transparent 50%),
+                radial-gradient(at 100% 0%, rgba(168, 85, 247, 0.1) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(236, 72, 153, 0.08) 0px, transparent 50%);
+        }
+    </style>
+</head>
+<body class="gradient-mesh text-slate-800 transition-colors duration-300 min-h-screen flex flex-col">
+
+    <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-indigo-100 shadow-sm">
+        <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <div class="bg-gradient-to-tr from-indigo-600 via-purple-600 to-pink-500 text-white font-bold p-3 rounded-2xl shadow-md text-lg transform hover:scale-105 transition-transform">
+                    🇫🇷✨
+                </div>
+                <div>
+                    <h1 class="font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-purple-600 tracking-tight text-xl" id="nav-title">Grammar Masterclass</h1>
+                    <p class="text-xs font-semibold text-purple-500 uppercase tracking-wider" id="nav-subtitle">Bien vs. Beaucoup vs. Très vs. Trop</p>
+                </div>
+            </div>
+            
+            <!-- Language Selector -->
+            <div class="flex items-center space-x-1.5 bg-slate-100 p-1.5 rounded-2xl border border-indigo-100 shadow-inner">
+                <button onclick="switchLanguage('en')" id="btn-en" class="px-3 py-1.5 text-xs font-bold rounded-xl bg-white text-indigo-600 shadow-sm transition-all">ENG</button>
+                <button onclick="switchLanguage('fr')" id="btn-fr" class="px-3 py-1.5 text-xs font-bold rounded-xl text-slate-600 hover:text-indigo-600 transition-all">FRA</button>
+                <button onclick="switchLanguage('pt')" id="btn-pt" class="px-3 py-1.5 text-xs font-bold rounded-xl text-slate-600 hover:text-indigo-600 transition-all">POR</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-grow max-w-6xl mx-auto px-4 py-12 w-full space-y-16">
+        <section class="text-center space-y-6 max-w-3xl mx-auto">
+            <span class="inline-flex items-center px-4 py-1.5 rounded-full text-xs font-bold bg-gradient-to-r from-indigo-50 via-purple-50 to-pink-50 text-indigo-700 border border-indigo-200 shadow-sm" id="hero-badge">
+                🚀 Advanced French Nuances & Intensifiers Ultimate Guide
+            </span>
+            <h2 class="text-4xl font-extrabold text-slate-900 tracking-tight sm:text-6xl leading-tight" id="hero-title">
+                Unlocking <span class="text-indigo-600">Bien</span>, <span class="text-purple-600">Beaucoup</span>, <span class="text-pink-600">Très</span> & <span class="text-amber-600">Trop</span>
+            </h2>
+            <p class="text-lg text-slate-600 leading-relaxed max-w-2xl mx-auto" id="hero-desc">
+                Discover the subtle emotional weights, grammatical traps, visual intensity charts, and rich relative expressions that transform your spoken French from textbook stiff to native smooth.
+            </p>
+        </section>
+
+        <section class="bg-gradient-to-br from-indigo-900 via-purple-900 to-slate-900 rounded-3xl p-8 md:p-10 text-white shadow-xl relative overflow-hidden">
+            <div class="absolute -right-10 -bottom-10 w-64 h-64 bg-pink-500/20 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="absolute -left-10 -top-10 w-64 h-64 bg-indigo-500/20 rounded-full blur-3xl pointer-events-none"></div>
+            
+            <div class="relative z-10 space-y-6">
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                    <div>
+                        <span class="text-xs font-extrabold tracking-widest text-pink-400 uppercase bg-pink-500/20 px-3 py-1 rounded-full border border-pink-500/30" id="diagram-badge">Visual Spectrum Chart</span>
+                        <h3 class="text-2xl font-bold mt-2 text-white" id="diagram-title">The Intensity Scale: From Soft to Extreme</h3>
+                    </div>
+                    <p class="text-xs text-indigo-200 max-w-sm" id="diagram-subtitle">Click any node below to inspect its precise grammatical target and emotional weight instantly.</p>
+                </div>
+
+                <!-- Visual Spectrum Bar -->
+                <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 pt-4">
+                    <div onclick="highlightNode('unpeu')" class="cursor-pointer bg-white/10 hover:bg-white/20 border border-white/15 p-4 rounded-2xl transition-all hover:scale-105 group text-center">
+                        <span class="text-xs text-indigo-300 font-mono block">Level 1</span>
+                        <span class="text-lg font-bold text-cyan-300 group-hover:text-white">Un peu</span>
+                        <span class="text-[10px] text-slate-300 block mt-1" id="diag-l1">A little bit</span>
+                    </div>
+                    <div onclick="highlightNode('bien')" class="cursor-pointer bg-white/10 hover:bg-white/20 border border-white/15 p-4 rounded-2xl transition-all hover:scale-105 group text-center">
+                        <span class="text-xs text-indigo-300 font-mono block">Level 2</span>
+                        <span class="text-lg font-bold text-blue-300 group-hover:text-white">Bien</span>
+                        <span class="text-[10px] text-slate-300 block mt-1" id="diag-l2">Moderate / Well</span>
+                    </div>
+                    <div onclick="highlightNode('beaucoup')" class="cursor-pointer bg-white/10 hover:bg-white/20 border border-white/15 p-4 rounded-2xl transition-all hover:scale-105 group text-center">
+                        <span class="text-xs text-indigo-300 font-mono block">Level 3</span>
+                        <span class="text-lg font-bold text-indigo-300 group-hover:text-white">Beaucoup</span>
+                        <span class="text-[10px] text-slate-300 block mt-1" id="diag-l3">High quantity / Deep</span>
+                    </div>
+                    <div onclick="highlightNode('tres')" class="cursor-pointer bg-white/10 hover:bg-white/20 border border-white/15 p-4 rounded-2xl transition-all hover:scale-105 group text-center">
+                        <span class="text-xs text-indigo-300 font-mono block">Level 4</span>
+                        <span class="text-lg font-bold text-purple-300 group-hover:text-white">Très</span>
+                        <span class="text-[10px] text-slate-300 block mt-1" id="diag-l4">Very (Adjectives)</span>
+                    </div>
+                    <div onclick="highlightNode('trop')" class="cursor-pointer bg-white/10 hover:bg-white/20 border border-white/15 p-4 rounded-2xl transition-all hover:scale-105 group text-center">
+                        <span class="text-xs text-indigo-300 font-mono block">Level 5</span>
+                        <span class="text-lg font-bold text-pink-300 group-hover:text-white">Trop</span>
+                        <span class="text-[10px] text-slate-300 block mt-1" id="diag-l5">Too much / Excess</span>
+                    </div>
+                    <div onclick="highlightNode('enormement')" class="cursor-pointer bg-white/10 hover:bg-white/20 border border-white/15 p-4 rounded-2xl transition-all hover:scale-105 group text-center">
+                        <span class="text-xs text-indigo-300 font-mono block">Level 6</span>
+                        <span class="text-lg font-bold text-amber-300 group-hover:text-white">Énormément</span>
+                        <span class="text-[10px] text-slate-300 block mt-1" id="diag-l6">Massively / Extreme</span>
+                    </div>
+                </div>
+
+                <!-- Dynamic Detail Inspection Box -->
+                <div id="spectrum-detail-box" class="bg-white/10 border border-white/20 p-5 rounded-2xl backdrop-blur-sm text-sm text-indigo-100 flex items-start gap-4 transition-all">
+                    <span class="text-2xl">💡</span>
+                    <div>
+                        <h4 class="font-bold text-white text-base" id="spec-title">Interactive Diagram Tip</h4>
+                        <p class="text-indigo-200 mt-1" id="spec-desc">Click any of the 6 spectrum level cards above to reveal deep rule insights, grammatical targets, and native examples.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
+            <!-- Bien Card -->
+            <div class="bg-white rounded-3xl p-6 border-2 border-blue-100 shadow-lg hover:shadow-xl transition-all relative overflow-hidden flex flex-col justify-between group">
+                <div class="absolute top-0 left-0 h-2 w-full bg-blue-500"></div>
+                <div>
+                    <div class="flex justify-between items-center mb-4">
+                        <span class="text-2xl font-black text-slate-900 group-hover:text-blue-600 transition-colors">Bien</span>
+                        <span class="text-[10px] uppercase tracking-wider px-2.5 py-1 bg-blue-50 text-blue-700 font-bold rounded-lg" id="badge-moderate">Moderate</span>
+                    </div>
+                    <p class="text-slate-600 text-sm mb-4 leading-relaxed" id="bien-summary">
+                        Expresses moderate appreciation, qualification, or polite understatement. Also means "well" with adjectives/adverbs.
+                    </p>
+                    <div class="bg-blue-50/60 p-3.5 rounded-2xl border border-blue-100 space-y-1.5 mb-4">
+                        <p class="text-[10px] font-extrabold text-blue-600 uppercase tracking-wider" id="lbl-golden-rule">Golden Rule</p>
+                        <p class="text-xs text-slate-700 leading-relaxed" id="bien-rule">Softens feelings (e.g., *aimer bien* = to like someone casually/safely).</p>
+                    </div>
+                </div>
+                <div class="border-t border-slate-100 pt-3">
+                    <span class="text-[11px] font-bold text-slate-400 block mb-1">Example:</span>
+                    <p class="text-sm italic text-blue-900 font-semibold">"J'aime bien ce film."</p>
+                    <p class="text-xs text-slate-500 mt-0.5" id="bien-ex-desc">I quite like this movie.</p>
+                </div>
+            </div>
+
+            <!-- Beaucoup Card -->
+            <div class="bg-white rounded-3xl p-6 border-2 border-indigo-100 shadow-lg hover:shadow-xl transition-all relative overflow-hidden flex flex-col justify-between group">
+                <div class="absolute top-0 left-0 h-2 w-full bg-indigo-600"></div>
+                <div>
+                    <div class="flex justify-between items-center mb-4">
+                        <span class="text-2xl font-black text-slate-900 group-hover:text-indigo-600 transition-colors">Beaucoup</span>
+                        <span class="text-[10px] uppercase tracking-wider px-2.5 py-1 bg-indigo-50 text-indigo-700 font-bold rounded-lg" id="badge-high">High Quantity</span>
+                    </div>
+                    <p class="text-slate-600 text-sm mb-4 leading-relaxed" id="beaucoup-summary">
+                        Expresses high quantity or strong emotional intensity. Follows verbs directly or uses <span class="font-semibold text-slate-900">de</span> before nouns.
+                    </p>
+                    <div class="bg-indigo-50/60 p-3.5 rounded-2xl border border-indigo-100 space-y-1.5 mb-4">
+                        <p class="text-[10px] font-extrabold text-indigo-600 uppercase tracking-wider" id="lbl-golden-rule-2">Golden Rule</p>
+                        <p class="text-xs text-slate-700 leading-relaxed" id="beaucoup-rule">Shows genuine enthusiasm or large volume (*beaucoup de travail*).</p>
+                    </div>
+                </div>
+                <div class="border-t border-slate-100 pt-3">
+                    <span class="text-[11px] font-bold text-slate-400 block mb-1">Example:</span>
+                    <p class="text-sm italic text-indigo-900 font-semibold">"J'aime beaucoup Paris."</p>
+                    <p class="text-xs text-slate-500 mt-0.5" id="beaucoup-ex-desc">I love Paris a lot / deeply.</p>
+                </div>
+            </div>
+
+            <!-- Très Card -->
+            <div class="bg-white rounded-3xl p-6 border-2 border-purple-100 shadow-lg hover:shadow-xl transition-all relative overflow-hidden flex flex-col justify-between group">
+                <div class="absolute top-0 left-0 h-2 w-full bg-purple-500"></div>
+                <div>
+                    <div class="flex justify-between items-center mb-4">
+                        <span class="text-2xl font-black text-slate-900 group-hover:text-purple-600 transition-colors">Très</span>
+                        <span class="text-[10px] uppercase tracking-wider px-2.5 py-1 bg-purple-50 text-purple-700 font-bold rounded-lg" id="badge-amplifier">Amplifier</span>
+                    </div>
+                    <p class="text-slate-600 text-sm mb-4 leading-relaxed" id="tres-card-summary">
+                        Means "very". It exclusively modifies adjectives and adverbs. It can never modify verbs directly.
+                    </p>
+                    <div class="bg-purple-50/60 p-3.5 rounded-2xl border border-purple-100 space-y-1.5 mb-4">
+                        <p class="text-[10px] font-extrabold text-purple-600 uppercase tracking-wider" id="lbl-tres-rule">Golden Rule</p>
+                        <p class="text-xs text-slate-700 leading-relaxed" id="tres-card-rule">Use with attributes (*très grand*, *très vite*), never with verbs (*très aimer* is illegal).</p>
+                    </div>
+                </div>
+                <div class="border-t border-slate-100 pt-3">
+                    <span class="text-[11px] font-bold text-slate-400 block mb-1">Example:</span>
+                    <p class="text-sm italic text-purple-900 font-semibold">"Il est très intelligent."</p>
+                    <p class="text-xs text-slate-500 mt-0.5" id="tres-ex-desc">He is very intelligent.</p>
+                </div>
+            </div>
+
+            <!-- Trop Card -->
+            <div class="bg-white rounded-3xl p-6 border-2 border-pink-100 shadow-lg hover:shadow-xl transition-all relative overflow-hidden flex flex-col justify-between group">
+                <div class="absolute top-0 left-0 h-2 w-full bg-pink-500"></div>
+                <div>
+                    <div class="flex justify-between items-center mb-4">
+                        <span class="text-2xl font-black text-slate-900 group-hover:text-pink-600 transition-colors">Trop</span>
+                        <span class="text-[10px] uppercase tracking-wider px-2.5 py-1 bg-pink-50 text-pink-700 font-bold rounded-lg" id="badge-excess">Excess</span>
+                    </div>
+                    <p class="text-slate-600 text-sm mb-4 leading-relaxed" id="trop-card-summary">
+                        Means "too much" or "too". It indicates an excessive state, overabundance, or extreme degree that often implies a negative boundary.
+                    </p>
+                    <div class="bg-pink-50/60 p-3.5 rounded-2xl border border-pink-100 space-y-1.5 mb-4">
+                        <p class="text-[10px] font-extrabold text-pink-600 uppercase tracking-wider" id="lbl-trop-rule">Golden Rule</p>
+                        <p class="text-xs text-slate-700 leading-relaxed" id="trop-card-rule">Can modify verbs (*je travaille trop*), adjectives (*trop cher*), or nouns with *de* (*trop de sucre*).</p>
+                    </div>
+                </div>
+                <div class="border-t border-slate-100 pt-3">
+                    <span class="text-[11px] font-bold text-slate-400 block mb-1">Example:</span>
+                    <p class="text-sm italic text-pink-900 font-semibold">"C'est trop cher !"</p>
+                    <p class="text-xs text-slate-500 mt-0.5" id="trop-ex-desc">It's way too expensive!</p>
+                </div>
+            </div>
+
+            <!-- Très Beaucoup Error Card -->
+            <div class="bg-gradient-to-br from-rose-50 to-orange-50 rounded-3xl p-6 border-2 border-rose-200 shadow-lg hover:shadow-xl transition-all relative overflow-hidden flex flex-col justify-between">
+                <div class="absolute top-0 left-0 h-2 w-full bg-rose-500"></div>
+                <div>
+                    <div class="flex justify-between items-center mb-4">
+                        <span class="text-lg font-black text-rose-900 flex items-center gap-1.5">
+                            Très Beaucoup 
+                        </span>
+                        <span class="text-[10px] bg-rose-200 text-rose-800 px-2 py-0.5 rounded-lg font-mono font-bold">❌ Error</span>
+                    </div>
+                    <p class="text-slate-600 text-sm mb-4 leading-relaxed" id="tres-summary">
+                        A catastrophic grammatical clash in French! You cannot mix <span class="italic font-semibold">très</span> (very) with <span class="italic font-semibold">beaucoup</span> (a lot).
+                    </p>
+                    <div class="bg-white/90 p-3.5 rounded-2xl border border-rose-200 space-y-1.5 mb-4">
+                        <p class="text-[10px] font-extrabold text-rose-600 uppercase tracking-wider" id="lbl-correction">How to fix it</p>
+                        <p class="text-xs text-slate-700 leading-relaxed" id="tres-rule">Use <span class="font-semibold text-rose-900">beaucoup</span> on its own or switch to <span class="font-semibold text-rose-900">énormément</span>.</p>
+                    </div>
+                </div>
+                <div class="border-t border-rose-200 pt-3">
+                    <span class="text-[11px] font-bold text-rose-400 block mb-1">Correction:</span>
+                    <p class="text-sm italic text-rose-900 font-semibold">"Je t'aime énormément."</p>
+                    <p class="text-xs text-slate-500 mt-0.5" id="tres-ex-desc">I love you so very much.</p>
+                </div>
+            </div>
+        </div>
+
+        <section class="bg-white rounded-3xl border-2 border-indigo-100 p-8 md:p-10 shadow-xl space-y-8 relative overflow-hidden">
+            <div class="absolute top-0 right-0 w-96 h-96 bg-indigo-50 rounded-full blur-3xl -z-10 pointer-events-none"></div>
+            
+            <div class="border-b border-indigo-50 pb-6">
+                <span class="text-xs font-extrabold uppercase tracking-widest text-indigo-600 bg-indigo-50 px-3 py-1 rounded-full border border-indigo-100" id="matrix-tag">Psychology of Verbs</span>
+                <h3 class="text-3xl font-extrabold text-slate-900 mt-3" id="matrix-heading">The Classic Nuance: Aimer Bien vs. Aimer Beaucoup</h3>
+                <p class="text-slate-600 text-sm mt-1 max-w-2xl" id="matrix-subheading">How switching modifiers completely changes your relationship status, social boundaries, or formal review scores.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <div class="space-y-4">
+                    <div class="p-5 rounded-2xl bg-blue-50/70 border-2 border-blue-200 shadow-sm space-y-2 transform hover:scale-[1.01] transition-transform">
+                        <div class="flex items-center space-x-3">
+                            <span class="bg-blue-600 text-white font-black w-7 h-7 rounded-xl flex items-center justify-center text-xs shadow-md">1</span>
+                            <h4 class="font-bold text-blue-950 text-base">J'aime bien [Quelqu'un / Quelque chose]</h4>
+                        </div>
+                        <p class="text-sm text-slate-700 pl-10 leading-relaxed" id="nuance-bien-desc">
+                            When talking about a person, this means you consider them a nice friend or colleague, <strong>strictly avoiding romantic implications</strong> ("I like you as a friend / you're nice"). When talking about food or art, it implies pleasant satisfaction without over-enthusiasm.
+                        </p>
+                    </div>
+
+                    <div class="p-5 rounded-2xl bg-indigo-50/70 border-2 border-indigo-200 shadow-sm space-y-2 transform hover:scale-[1.01] transition-transform">
+                        <div class="flex items-center space-x-3">
+                            <span class="bg-indigo-600 text-white font-black w-7 h-7 rounded-xl flex items-center justify-center text-xs shadow-md">2</span>
+                            <h4 class="font-bold text-indigo-950 text-base">J'aime beaucoup [Quelqu'un / Quelque chose]</h4>
+                        </div>
+                        <p class="text-sm text-slate-700 pl-10 leading-relaxed" id="nuance-beaucoup-desc">
+                            Carries genuine warmth, deep fondness, or strong emotional excitement. Used enthusiastically for food, places, art, or close personal bonds.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="bg-gradient-to-br from-slate-900 via-indigo-950 to-slate-900 text-slate-100 p-8 rounded-3xl shadow-xl space-y-5 border border-indigo-500/30">
+                    <div class="flex items-center space-x-2">
+                        <span class="bg-pink-500 text-white text-[10px] font-black uppercase px-2.5 py-1 rounded-lg">Pro Secret</span>
+                        <span class="text-xs uppercase tracking-widest text-indigo-300 font-bold" id="terminal-title">Diplomatic French Evaluation</span>
+                    </div>
+                    <p class="text-sm leading-relaxed text-slate-300" id="terminal-text">
+                        In a professional evaluation, if a French boss tells you: <span class="text-white font-bold italic">"C'est bien"</span> (It's good), it often means it is mediocre, basic, or meets the bare minimum. If they say <span class="text-white font-bold italic">"C'est très bien"</span> or <span class="text-white font-bold italic">"C'est beaucoup mieux"</span>, you have genuinely impressed them!
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="bg-white rounded-3xl border-2 border-indigo-100 overflow-hidden shadow-xl">
+            <div class="p-8 border-b border-indigo-50 bg-gradient-to-r from-slate-50 via-indigo-50/30 to-purple-50/30 flex justify-between items-center flex-wrap gap-4">
+                <div>
+                    <span class="text-xs font-extrabold uppercase tracking-widest text-indigo-600 bg-white px-3 py-1 rounded-full border border-indigo-200 shadow-sm" id="toolkit-tag">Vocabulary Expansion</span>
+                    <h3 class="text-2xl font-extrabold text-slate-900 mt-2" id="expressions-title">Extended Expressions Toolkit</h3>
+                    <p class="text-xs text-slate-500 mt-1" id="expressions-subtitle">Master these relative variations to expand your linguistic range and precision.</p>
+                </div>
+            </div>
+
+            <div class="overflow-x-auto">
+                <table class="w-full text-left border-collapse">
+                    <thead>
+                        <tr class="bg-slate-100/80 text-slate-700 text-xs uppercase tracking-wider font-extrabold border-b border-slate-200">
+                            <th class="p-5" id="th-expr">Expression</th>
+                            <th class="p-5" id="th-meaning">Meaning & Nuance</th>
+                            <th class="p-5" id="th-example">Contextual Example</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-100 text-sm text-slate-700 font-medium" id="expressions-table-body">
+                        <!-- Populated via Javascript -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="space-y-8">
+            <div class="border-b border-indigo-100 pb-4">
+                <span class="text-xs font-extrabold uppercase tracking-widest text-purple-600 bg-purple-50 px-3 py-1 rounded-full border border-purple-200 shadow-sm" id="scenarios-tag">Real-World Application</span>
+                <h3 class="text-3xl font-extrabold text-slate-900 mt-3" id="extra-section-title">Deep Dive: 3 Detailed Contextual Scenarios</h3>
+                <p class="text-slate-600 text-sm mt-1" id="extra-section-sub">Analyzing how these choices play out in everyday native conversations.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6" id="extra-examples-grid">
+                <!-- Populated via Javascript -->
+            </div>
+        </section>
+
+        <section class="bg-gradient-to-tr from-indigo-600 via-purple-600 to-pink-600 rounded-3xl p-8 md:p-10 text-white shadow-2xl space-y-6 relative overflow-hidden">
+            <div class="absolute right-0 top-0 w-96 h-96 bg-white/10 rounded-full blur-3xl pointer-events-none"></div>
+            
+            <div class="flex justify-between items-center flex-wrap gap-4">
+                <div>
+                    <span class="text-xs font-black uppercase tracking-widest bg-white/20 text-white px-3 py-1 rounded-full border border-white/30" id="quiz-badge">Interactive Test</span>
+                    <h3 class="text-2xl font-black mt-2" id="quiz-title">Test Your Grammar Mastery</h3>
+                </div>
+                <div class="bg-white/20 backdrop-blur-md px-4 py-2 rounded-2xl border border-white/25 text-xs font-bold" id="quiz-score-display">
+                    Score: <span id="score-val">0</span> / 3
+                </div>
+            </div>
+
+            <div id="quiz-container" class="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 space-y-5">
+                <p class="text-lg font-bold text-white" id="quiz-question">Question 1: What is the correct way to tell your close friend you love them deeply?</p>
+                <div id="quiz-options" class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                    <!-- Populated via JS -->
+                </div>
+                <div id="quiz-feedback" class="text-sm font-semibold p-3 rounded-xl hidden"></div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-white border-t border-indigo-100 py-8 mt-16 text-center text-xs text-slate-500 font-medium">
+        <p id="footer-text">French Grammar Masterclass • Interactive Learning Platform & Linguistic Engine</p>
+    </footer>
+
+    <script>
+        const content = {
+            en: {
+                navTitle: "Grammar Masterclass",
+                navSubtitle: "Bien vs. Beaucoup vs. Très vs. Trop",
+                heroBadge: "🚀 Advanced French Nuances & Intensifiers Ultimate Guide",
+                heroTitle: "Unlocking <span class='text-indigo-600'>Bien</span>, <span class='text-purple-600'>Beaucoup</span>, <span class='text-pink-600'>Très</span> & <span class='text-amber-600'>Trop</span>",
+                heroDesc: "Discover the subtle emotional weights, grammatical traps, visual intensity charts, and rich relative expressions that transform your spoken French from textbook stiff to native smooth.",
+                diagramBadge: "Visual Spectrum Chart",
+                diagramTitle: "The Intensity Scale: From Soft to Extreme",
+                diagramSubtitle: "Click any node below to inspect its precise grammatical target and emotional weight instantly.",
+                diagL1: "A little bit",
+                diagL2: "Moderate / Well",
+                diagL3: "High quantity / Deep",
+                diagL4: "Very (Adjectives)",
+                diagL5: "Too much / Excess",
+                diagL6: "Massively / Extreme",
+                badgeModerate: "Moderate",
+                bienSummary: "Expresses moderate appreciation, qualification, or polite understatement. Also means 'well' with adjectives/adverbs.",
+                lblGoldenRule: "Golden Rule",
+                bienRule: "Softens feelings (e.g., *aimer bien* = to like someone casually/safely).",
+                bienExDesc: "I quite like this movie.",
+                badgeHigh: "High Quantity",
+                beaucoupSummary: "Expresses high quantity or strong emotional intensity. Follows verbs directly or uses <span class='font-semibold text-slate-900'>de</span> before nouns.",
+                beaucoupRule: "Shows genuine enthusiasm or large volume (*beaucoup de travail*).",
+                beaucoupExDesc: "I love Paris a lot / deeply.",
+                badgeAmplifier: "Amplifier",
+                tresCardSummary: "Means 'very'. It exclusively modifies adjectives and adverbs. It can never modify verbs directly.",
+                lblTresRule: "Golden Rule",
+                tresCardRule: "Use with attributes (*très grand*, *très vite*), never with verbs (*très aimer* is illegal).",
+                tresExDesc: "He is very intelligent.",
+                badgeExcess: "Excess",
+                tropCardSummary: "Means 'too much' or 'too'. Indicates an excessive state or overabundance that often carries a negative warning.",
+                lblTropRule: "Golden Rule",
+                tropCardRule: "Modifies verbs (*travailler trop*), adjectives (*trop cher*), or nouns with *de* (*trop de sel*).",
+                tropExDesc: "It's way too expensive!",
+                tresSummary: "A catastrophic grammatical clash in French! You cannot mix <span class='italic font-semibold'>très</span> (very) with <span class='italic font-semibold'>beaucoup</span> (a lot).",
+                lblCorrection: "How to fix it",
+                tresRule: "Use <span class='font-semibold text-rose-900'>beaucoup</span> on its own or switch to <span class='font-semibold text-rose-900'>énormément</span>.",
+                tresExDesc: "I love you so very much.",
+                matrixTag: "Psychology of Verbs",
+                matrixHeading: "The Classic Nuance: Aimer Bien vs. Aimer Beaucoup",
+                matrixSubheading: "How switching modifiers completely changes your relationship status, social boundaries, or formal review scores.",
+                nuanceBienDesc: "When talking about a person, this means you consider them a nice friend or colleague, <strong>strictly avoiding romantic implications</strong> ('I like you as a friend / you're nice'). When talking about food or art, it implies pleasant satisfaction without over-enthusiasm.",
+                nuanceBeaucoupDesc: "Carries genuine warmth, deep fondness, or strong emotional excitement. Used enthusiastically for food, places, art, or close personal bonds.",
+                terminalTitle: "Diplomatic French Evaluation",
+                terminalText: "In a professional evaluation, if a French boss tells you: <span class='text-white font-bold italic'>\"C'est bien\"</span> (It's good), it often means it is mediocre, basic, or meets the bare minimum. If they say <span class='text-white font-bold italic'>\"C'est très bien\"</span> or <span class='text-white font-bold italic'>\"C'est beaucoup mieux\"</span>, you have genuinely impressed them!",
+                toolkitTag: "Vocabulary Expansion",
+                expressionsTitle: "Extended Expressions Toolkit",
+                expressionsSubtitle: "Master these relative variations to expand your linguistic range and precision.",
+                thExpr: "Expression",
+                thMeaning: "Meaning & Nuance",
+                thExample: "Contextual Example",
+                scenariosTag: "Real-World Application",
+                extraSectionTitle: "Deep Dive: 3 Detailed Contextual Scenarios",
+                extraSectionSub: "Analyzing how these choices play out in everyday native conversations.",
+                footerText: "French Grammar Masterclass • Interactive Learning Platform & Linguistic Engine",
+                expressions: [
+                    { expr: "Pas mal (du tout)", meaning: "Not bad at all / Quite a bit. Shows positive approval higher than 'bien' but lower than 'énormément'.", example: "J'aime pas mal ce livre." },
+                    { expr: "Énormément", meaning: "Enormously / Massively. The correct alternative when you want to emphasize 'beaucoup' to an extreme level.", example: "Je te remercie énormément." },
+                    { expr: "Un peu", meaning: "A little bit. The lower anchor on the preference scale.", example: "J'aime un peu le café, mais je préfère le thé." },
+                    { expr: "Pas du tout", meaning: "Not at all. Absolute negative preference or denial.", example: "Je n'aime pas du tout cette approche." },
+                    { expr: "Par-dessus tout", meaning: "Above all else. Indicates absolute maximum priority or preference.", example: "J'aime la liberté par-dessus tout." },
+                    { expr: "Tellement", meaning: "So much / So very. Can replace 'beaucoup' with verbs or modify adjectives with emotional flair.", example: "Je t'aime tellement !" },
+                    { expr: "Guère", meaning: "Hardly / Scarcely. A formal or literary understatement implying very little.", example: "Il n'aime guère ce genre de film." }
+                ],
+                extraExamples: [
+                    {
+                        tag: "Scenario 1: Dining Out",
+                        title: "Restaurant Review",
+                        french: "« Le repas était bien, mais j'ai beaucoup aimé le dessert ! »",
+                        translation: "The meal was decent/fine, but I really loved the dessert!",
+                        explanation: "Notice the contrast: *bien* gives a polite, mild compliment to the overall meal, while *beaucoup aimé* highlights that the dessert was a standout favorite."
+                    },
+                    {
+                        tag: "Scenario 2: Social Relationship",
+                        title: "Introducing a Friend",
+                        french: "« Je l'aime bien, c'est un bon collègue. » vs « Je l'aime beaucoup ! »",
+                        translation: "“I like him/her (as a friend/colleague)” vs “I adore/like him/her a lot!”",
+                        explanation: "Using *bien* establishes a safe, friendly boundary. Upgrading to *beaucoup* implies a much closer bond or deep affection."
+                    },
+                    {
+                        tag: "Scenario 3: Workload & Productivity",
+                        title: "Managing Tasks",
+                        french: "« Je travaille bien aujourd'hui, j'ai beaucoup de dossiers. »",
+                        translation: "“I am working well today, I have a lot of files.”",
+                        explanation: "Here, *bien* modifies the quality of the work (*how* you work), whereas *beaucoup de* modifies the exact quantity of files (*how many* items you have)."
+                    }
+                ]
+            },
+            fr: {
+                navTitle: "Masterclass de Grammaire",
+                navSubtitle: "Bien vs. Beaucoup vs. Très vs. Trop",
+                heroBadge: "🚀 Guide Définitif des Nuances et Intensificateurs",
+                heroTitle: "Maîtriser <span class='text-indigo-600'>Bien</span>, <span class='text-purple-600'>Beaucoup</span>, <span class='text-pink-600'>Très</span> & <span class='text-amber-600'>Trop</span>",
+                heroDesc: "Découvrez les poids émotionnels subtils, les pièges grammaticaux, les graphiques d'intensité visuelle et les expressions riches pour un français authentique.",
+                diagramBadge: "Spectre Visuel d'Intensité",
+                diagramTitle: "L'Échelle d'Intensité : Du Doux à l'Extrême",
+                diagramSubtitle: "Cliquez sur n'importe quel nœud ci-dessous pour inspecter sa cible grammaticale et son poids émotionnel instantanément.",
+                diagL1: "Un peu",
+                diagL2: "Modéré / Bien",
+                diagL3: "Haute quantité / Profond",
+                diagL4: "Très (Adjectifs)",
+                diagL5: "Trop / Excès",
+                diagL6: "Énormément / Extrême",
+                badgeModerate: "Modéré",
+                bienSummary: "Exprime une appréciation modérée, une qualification ou une réserve polie. Signifie aussi 'bien' avec les adjectifs/adverbes.",
+                lblGoldenRule: "Règle d'or",
+                bienRule: "Atténue les sentiments (ex: *aimer bien* = apprécier sans romantisme).",
+                bienExDesc: "J'aime assez ce film.",
+                badgeHigh: "Haute Quantité",
+                beaucoupSummary: "Exprime une grande quantité ou forte intensité. Suit directement le verbe ou utilise <span class='font-semibold text-slate-900'>de</span> devant un nom.",
+                beaucoupRule: "Montre un enthousiasme sincère ou un volume important (*beaucoup de travail*).",
+                beaucoupExDesc: "J'aime beaucoup Paris / profondément.",
+                badgeAmplifier: "Intensif",
+                tresCardSummary: "Signifie 'very' (très). Modifie exclusivement les adjectifs et les adverbes. Ne peut jamais modifier directement un verbe.",
+                lblTresRule: "Règle d'or",
+                tresCardRule: "Utiliser avec des attributs (*très grand*, *très vite*), jamais avec des verbes (*très aimer* est interdit).",
+                tresExDesc: "Il est très intelligent.",
+                badgeExcess: "Excès",
+                tropCardSummary: "Signifie 'trop'. Indique un état excessif ou une surabondance qui comporte souvent une limite ou un avertissement négatif.",
+                lblTropRule: "Règle d'or",
+                tropCardRule: "Modifie les verbes (*travailler trop*), les adjectifs (*trop cher*) ou les noms avec *de* (*trop de sel*).",
+                tropExDesc: "C'est beaucoup trop cher !",
+                tresSummary: "Un clash grammatical inacceptable en français ! On ne peut pas mélanger <span class='italic font-semibold'>très</span> (very) et <span class='italic font-semibold'>beaucoup</span>.",
+                lblCorrection: "Comment corriger",
+                tresRule: "Utilisez <span class='font-semibold text-rose-900'>beaucoup</span> seul ou passez à <span class='font-semibold text-rose-900'>énormément</span>.",
+                tresExDesc: "Je t'aime énormément.",
+                matrixTag: "Psychologie des Verbes",
+                matrixHeading: "La Nuance Classique : Aimer Bien vs. Aimer Beaucoup",
+                matrixSubheading: "Comment changer de modificateur modifie complètement le sens relationnel ou votre avis.",
+                nuanceBienDesc: "Pour une personne, cela signifie que vous la considérez comme un(e) bon(ne) ami(e) ou collègue, <strong>évitant toute ambiguïté romantique</strong> ('je t'aime bien'). Pour la nourriture ou l'art, cela indique une satisfaction agréable sans excès.",
+                nuanceBeaucoupDesc: "Exprime une chaleur sincère, une profonde affection ou une forte excitation. Utilisé avec enthousiasme pour la cuisine, les lieux ou les proches.",
+                terminalTitle: "Évaluation Diplomatique Pro",
+                terminalText: "Dans une évaluation professionnelle, si votre supérieur vous dit : <span class='text-white font-bold italic'>\"C'est bien\"</span>, cela signifie souvent que c'est médiocre ou tout juste acceptable. S'il dit <span class='text-white font-bold italic'>\"C'est très bien\"</span> ou <span class='text-white font-bold italic'>\"C'est beaucoup mieux\"</span>, vous l'avez impressionné !",
+                toolkitTag: "Expansion du Vocabulaire",
+                expressionsTitle: "Boîte à Outils des Expressions",
+                expressionsSubtitle: "Maîtrisez ces variations pour élargir votre vocabulaire et votre précision.",
+                thExpr: "Expression",
+                thMeaning: "Sens & Nuance",
+                thExample: "Exemple Contextuel",
+                scenariosTag: "Application Réelle",
+                extraSectionTitle: "Zoom sur 3 Scénarios Contextuels Détaillés",
+                extraSectionSub: "Analyser comment ces choix s'appliquent dans les conversations quotidiennes.",
+                footerText: "Masterclass de Grammaire • Plateforme d'Apprentissage Interactive",
+                expressions: [
+                    { expr: "Pas mal (du tout)", meaning: "Pas mal du tout / Assez bien. Témoigne d'une approbation supérieure à 'bien' mais inférieure à 'énormément'.", example: "J'aime pas mal ce livre." },
+                    { expr: "Énormément", meaning: "Énormément / Beaucoup plus que 'beaucoup'. L'alternative idéale pour intensifier.", example: "Je te remercie énormément." },
+                    { expr: "Un peu", meaning: "Un peu. Le degré le plus bas de l'échelle des préférences.", example: "J'aime un peu le café, mais je préfère le thé." },
+                    { expr: "Pas du tout", meaning: "Pas du tout. Préférence négative absolue ou rejet total.", example: "Je n'aime pas du tout cette approche." },
+                    { expr: "Par-dessus tout", meaning: "Plus que tout autre chose. Indique la priorité ou la préférence absolue.", example: "J'aime la liberté par-dessus tout." },
+                    { expr: "Tellement", meaning: "Tellement. Peut remplacer 'beaucoup' avec les verbes ou intensifier des adjectifs avec élan.", example: "Je t'aime tellement !" },
+                    { expr: "Guère", meaning: "Guère / Presque pas. Atténuation littéraire ou formelle exprimant un très faible degré.", example: "Il n'aime guère ce genre de film." }
+                ],
+                extraExamples: [
+                    {
+                        tag: "Scénario 1 : Au restaurant",
+                        title: "Critique Culinaire",
+                        french: "« Le repas était bien, mais j'ai beaucoup aimé le dessert ! »",
+                        translation: "Le repas était correct, mais j'ai adoré le dessert !",
+                        explanation: "Notez le contraste : *bien* donne un compliment poli et mesuré au repas global, tandis que *beaucoup aimé* souligne que le dessert était le point fort."
+                    },
+                    {
+                        tag: "Scénario 2 : Relation Sociale",
+                        title: "Présenter un collègue",
+                        french: "« Je l'aime bien, c'est un bon collègue. » vs « Je l'aime beaucoup ! »",
+                        translation: "“Je l'apprécie (amicalement)” vs “Je l'aime beaucoup !”",
+                        explanation: "Utiliser *bien* pose une barrière amicale et saine. Passer à *beaucoup* suggère un lien beaucoup plus fort ou une profonde affection."
+                    },
+                    {
+                        tag: "Scénario 3 : Charge de travail",
+                        title: "Gérer ses tâches",
+                        french: "« Je travaille bien aujourd'hui, j'ai beaucoup de dossiers. »",
+                        translation: "“Je travaille bien aujourd'hui, j'ai beaucoup de dossiers.”",
+                        explanation: "Ici, *bien* qualifie la qualité du travail (*comment* vous travaillez), tandis que *beaucoup de* quantifie le volume de dossiers (*combien* d'éléments vous traitez)."
+                    }
+                ]
+            },
+            pt: {
+                navTitle: "Masterclass de Gramática",
+                navSubtitle: "Bien vs. Beaucoup vs. Très vs. Trop",
+                heroBadge: "🚀 Guia Definitivo de Nuances e Intensificadores",
+                heroTitle: "Dominando <span class='text-indigo-600'>Bien</span>, <span class='text-purple-600'>Beaucoup</span>, <span class='text-pink-600'>Très</span> & <span class='text-amber-600'>Trop</span>",
+                heroDesc: "Descubra os pesos emocionais sutis, armadilhas gramaticais, gráficos de intensidade visual e expressões ricas para um francês natural e fluido.",
+                diagramBadge: "Espectro Visual de Intensidade",
+                diagramTitle: "A Escala de Intensidade: Do Suave ao Extremo",
+                diagramSubtitle: "Clique em qualquer nó abaixo para inspecionar sua alvo gramatical e peso emocional instantaneamente.",
+                diagL1: "Um pouco",
+                diagL2: "Moderado / Bem",
+                diagL3: "Alta quantidade / Profundo",
+                diagL4: "Muito (Adjetivos)",
+                diagL5: "Demais / Excesso",
+                diagL6: "Enormemente / Extremo",
+                badgeModerate: "Moderado",
+                bienSummary: "Expressa apreciação moderada, qualificação ou polidez contida. Também significa 'bem' com adjetivos/advérbios.",
+                lblGoldenRule: "Regra de Ouro",
+                bienRule: "Suaviza sentimentos (ex: *aimer bien* = gostar de forma casual/amigável).",
+                bienExDesc: "Eu gosto bastante deste filme.",
+                badgeHigh: "Alta Quantidade",
+                beaucoupSummary: "Expressa grande quantidade ou forte intensidade emocional. Segue verbos diretamente ou usa <span class='font-semibold text-slate-900'>de</span> antes de substantivos.",
+                beaucoupRule: "Mostra entusiasmo genuíno ou grande volume (*beaucoup de travail*).",
+                beaucoupExDesc: "Eu gosto muito de Paris / profundamente.",
+                badgeAmplifier: "Intensificador",
+                tresCardSummary: "Significa 'muito' (très). Modifica exclusivamente adjetivos e advérbios. Nunca pode modificar verbos diretamente.",
+                lblTresRule: "Regra de Ouro",
+                tresCardRule: "Use com atributos (*très grand*, *très vite*), nunca com verbos (*très aimer* é proibido).",
+                tresExDesc: "Ele é muito inteligente.",
+                badgeExcess: "Excesso",
+                tropCardSummary: "Significa 'demais' ou 'muito'. Indica um estado excessivo ou sobrecarga que frequentemente carrega um aviso negativo.",
+                lblTropRule: "Regra de Ouro",
+                tropCardRule: "Modifica verbos (*travailler trop*), adjetivos (*trop cher*) ou substantivos com *de* (*trop de sel*).",
+                tropExDesc: "Está caro demais!",
+                tresSummary: "Um choque gramatical inaceitável em francês! Você não pode misturar <span class='italic font-semibold'>très</span> (muito) com <span class='italic font-semibold'>beaucoup</span>.",
+                lblCorrection: "Como corrigir",
+                tresRule: "Use <span class='font-semibold text-rose-900'>beaucoup</span> isoladamente ou mude para <span class='font-semibold text-rose-900'>énormément</span>.",
+                tresExDesc: "Eu te amo muitíssimo.",
+                matrixTag: "Psicologia dos Verbos",
+                matrixHeading: "A Nuance Clássica: Aimer Bien vs. Aimer Beaucoup",
+                matrixSubheading: "Como trocar o modificador muda completamente o status do seu relacionamento ou avaliação.",
+                nuanceBienDesc: "Ao falar de uma pessoa, significa que você a considera um bom amigo ou colega, <strong>evitando estritamente conotações românticas</strong> ('gosto de você como amigo'). Em comida ou arte, indica satisfação agradável sem exagero.",
+                nuanceBeaucoupDesc: "Carrega calor genuíno, carinho profundo ou forte entusiasmo. Usado com paixão para comida, lugares, arte ou laços estreitos.",
+                terminalTitle: "Avaliação Diplomática Profissional",
+                terminalText: "Em uma avaliação profissional, se um chefe francês lhe diz: <span class='text-white font-medium italic'>\"C'est bien\"</span> (Está bom), frequentemente significa que é medíocre ou cumpre o mínimo necessário. Se ele disser <span class='text-white font-medium italic'>\"C'est très bien\"</span> ou <span class='text-white font-medium italic'>\"C'est beaucoup mieux\"</span>, você realmente o impressionou!",
+                toolkitTag: "Expansão de Vocabulário",
+                expressionsTitle: "Kit de Expressões Relativas",
+                expressionsSubtitle: "Domine essas variações para expandir seu vocabulário e precisão.",
+                thExpr: "Expressão",
+                thMeaning: "Significado & Nuance",
+                thExample: "Exemplo Contextual",
+                scenariosTag: "Aplicação Prática",
+                extraSectionTitle: "Análise Profunda: 3 Cenários Contextuais Detalhados",
+                extraSectionSub: "Como essas escolhas se manifestam nas conversas do dia a dia.",
+                footerText: "Masterclass de Gramática • Plataforma de Aprendizagem Interativa",
+                expressions: [
+                    { expr: "Pas mal (du tout)", meaning: "Nada mal / Bastante. Demonstra aprovação positiva maior que 'bien' mas menor que 'énormément'.", example: "J'aime pas mal ce livre." },
+                    { expr: "Énormément", meaning: "Enormemente / Muito mais que 'beaucoup'. A alternativa correta de alta intensidade.", example: "Je te remercie énormément." },
+                    { expr: "Un peu", meaning: "Um pouco. O nível mais baixo na escala de preferência.", example: "J'aime un peu le café, mais je préfère le thé." },
+                    { expr: "Pas du tout", meaning: "De jeito nenhum. Preferência negativa absoluta ou negação total.", example: "Je n'aime pas du tout cette approche." },
+                    { expr: "Par-dessus tout", meaning: "Acima de tudo. Indica prioridade ou preferência absoluta máxima.", example: "J'aime la liberté par-dessus tout." },
+                    { expr: "Tellement", meaning: "Tanto / Tão. Pode substituir 'beaucoup' com verbos ou intensifier adjetivos com forte emoção.", example: "Je t'aime tellement !" },
+                    { expr: "Guère", meaning: "Mal / Quase nada. Subtítulo literário ou formal indicando grau muito baixo.", example: "Il n'aime guère ce genre de film." }
+                ],
+                extraExamples: [
+                    {
+                        tag: "Cenário 1: Jantar fora",
+                        title: "Crítica de Restaurante",
+                        french: "« Le repas était bien, mais j'ai beaucoup aimé le dessert ! »",
+                        translation: "A refeição estava boa/razoável, mas eu adorei a sobremesa!",
+                        explanation: "Note o contraste: *bien* dá um elogio educado e moderado à refeição geral, enquanto *beaucoup aimé* destaca que a sobremesa foi a grande favorita."
+                    },
+                    {
+                        tag: "Cenário 2: Relação Social",
+                        title: "Apresentando um Colega",
+                        french: "« Je l'aime bien, c'est un bon collègue. » vs « Je l'aime beaucoup ! »",
+                        translation: "“Gosto dele/dela (amigavelmente)” vs “Eu gosto muito dele/dela!”",
+                        explanation: "Usar *bien* estabelece um limite amigável e seguro. Subir para *beaucoup* sugere um vínculo muito mais próximo ou afeto profundo."
+                    },
+                    {
+                        tag: "Cenário 3: Carga de Trabalho",
+                        title: "Gerenciando Tarefas",
+                        french: "« Je travaille bien aujourd'hui, j'ai beaucoup de dossiers. »",
+                        translation: "“Estou trabalhando bem hoje, tenho muitos arquivos/processos.”",
+                        explanation: "Aqui, *bien* qualifica a qualidade do trabalho (*como* você trabalha), enquanto *beaucoup de* quantifica o volume de arquivos (*quantos* itens você possui)."
+                    }
+                ]
+            }
+        };
+
+        const spectrumDetails = {
+            en: {
+                unpeu: { title: "Un peu (Level 1)", desc: "Lowest intensity marker. Used for mild preference or small quantities (e.g., *un peu de sel*)." },
+                bien: { title: "Bien (Level 2)", desc: "Moderate positive anchor. Means 'well' with adverbs/adjectives or softens feelings (*aimer bien*)." },
+                beaucoup: { title: "Beaucoup (Level 3)", desc: "High intensity and quantity marker. Follows verbs directly or uses *de* before nouns (*beaucoup de travail*)." },
+                tres: { title: "Très (Level 4)", desc: "Amplifier strictly reserved for adjectives and adverbs (*très intelligent*). Cannot modify verbs directly." },
+                trop: { title: "Trop (Level 5)", desc: "Excess or overabundance indicator. Means 'too much' or 'too' (*trop cher*, *trop travailler*)." },
+                enormement: { title: "Énormément (Level 6)", desc: "Maximum extreme tier. Replaces 'beaucoup' when you want to express massive amounts or deep passion." }
+            },
+            fr: {
+                unpeu: { title: "Un peu (Niveau 1)", desc: "Marqueur d'intensité minimale. Utilisé pour une préférence légère ou une petite quantité." },
+                bien: { title: "Bien (Niveau 2)", desc: "Ancrage positif modéré. Signifie 'bien' ou atténue les sentiments (*aimer bien*)." },
+                beaucoup: { title: "Beaucoup (Niveau 3)", desc: "Marqueur de haute quantité et d'intensité. Suit les verbes ou utilise *de* avant un nom." },
+                tres: { title: "Très (Niveau 4)", desc: "Intensificateur strictement réservé aux adjectifs et adverbes (*très intelligent*)." },
+                trop: { title: "Trop (Niveau 5)", desc: "Indicateur d'excès ou de surabondance. Signifie 'trop' (*trop cher*, *trop travailler*)." },
+                enormement: { title: "Énormément (Niveau 6)", desc: "Niveau extrême maximal. Remplace 'beaucoup' pour exprimer une passion ou quantité massive." }
+            },
+            pt: {
+                unpeu: { title: "Un peu (Nível 1)", desc: "Marcador de intensidade mínima. Usado para preferência leve ou pequena quantidade." },
+                bien: { title: "Bien (Nível 2)", desc: "Âncora positiva moderada. Significa 'bem' ou suaviza sentimentos (*aimer bien*)." },
+                beaucoup: { title: "Beaucoup (Nível 3)", desc: "Marcador de alta quantidade e intensidade. Segue verbos diretamente ou usa *de* antes de substantivos." },
+                tres: { title: "Très (Nível 4)", desc: "Intensificador estritamente reservado para adjetivos e advérbios (*très intelligent*)." },
+                trop: { title: "Trop (Nível 5)", desc: "Indicador de excesso ou sobrecarga. Significa 'demais' ou 'muito' (*trop cher*, *travailler trop*)." },
+                enormement: { title: "Énormément (Nível 6)", desc: "Nível extremo máximo. Substitui 'beaucoup' para expressar quantidades massivas ou paixão profunda." }
+            }
+        };
+
+        const quizzes = [
+            {
+                en: { q: "How do you tell someone you like them casually as a friend without romantic weight?", options: ["Je l'aime très", "Je l'aime bien", "Je l'aime trop"], correct: 1, feedback: "Correct! *Aimer bien* safely signals friendly affection without romantic attachment." },
+                fr: { q: "Comment dire à quelqu'un qu'on l'apprécie amicalement sans ambiguïté romantique ?", options: ["Je l'aime très", "Je l'aime bien", "Je l'aime trop"], correct: 1, feedback: "Exact ! *Aimer bien* exprime une affection amicale et saine." },
+                pt: { q: "Como dizer a alguém que você gosta dele(a) de forma amigável, sem peso romântico?", options: ["Je l'aime très", "Je l'aime bien", "Je l'aime trop"], correct: 1, feedback: "Exato! *Aimer bien* sinaliza afeto amigável sem envolvimento romântico." }
+            },
+            {
+                en: { q: "What is the grammatical rule regarding 'très beaucoup'?", options: ["It is the most polite form", "It is grammatically incorrect", "It modifies verbs directly"], correct: 1, feedback: "Correct! You cannot mix 'très' with 'beaucoup'." },
+                fr: { q: "Quelle est la règle grammaticale concernant 'très beaucoup' ?", options: ["C'est la forme la plus polie", "C'est une erreur grammaticale", "Il modifie les verbes directement"], correct: 1, feedback: "Exact ! On ne peut pas mélanger 'très' et 'beaucoup'." },
+                pt: { q: "Qual é a regra gramatical sobre 'très beaucoup'?", options: ["É a forma mais educada", "Está gramaticalmente incorreto", "Modifica verbos diretamente"], correct: 1, feedback: "Exato! Você não pode misturar 'très' com 'beaucoup'." }
+            },
+            {
+                en: { q: "Which word means 'too much' or 'excess'?", options: ["Bien", "Trop", "Beaucoup"], correct: 1, feedback: "Correct! 'Trop' expresses excess or overabundance." },
+                fr: { q: "Quel mot signifie 'trop' ou 'excès' ?", options: ["Bien", "Trop", "Beaucoup"], correct: 1, feedback: "Exact ! 'Trop' indique un état excessif." },
+                pt: { q: "Qual palavra significa 'demais' ou 'excesso'?", options: ["Bien", "Trop", "Beaucoup"], correct: 1, feedback: "Exato! 'Trop' expressa excesso ou sobrecarga." }
+            }
+        ];
+
+        let currentLang = 'en';
+        let currentQuizIndex = 0;
+        let score = 0;
+
+        function switchLanguage(lang) {
+            currentLang = lang;
+            ['en', 'fr', 'pt'].forEach(l => {
+                const btn = document.getElementById(`btn-${l}`);
+                if (l === lang) {
+                    btn.className = "px-3 py-1.5 text-xs font-bold rounded-xl bg-white text-indigo-600 shadow-sm transition-all";
+                } else {
+                    btn.className = "px-3 py-1.5 text-xs font-bold rounded-xl text-slate-600 hover:text-indigo-600 transition-all";
+                }
+            });
+
+            const data = content[lang];
+
+            // Static bindings
+            document.getElementById('nav-title').innerText = data.navTitle;
+            document.getElementById('nav-subtitle').innerText = data.navSubtitle;
+            document.getElementById('hero-badge').innerHTML = data.heroBadge;
+            document.getElementById('hero-title').innerHTML = data.heroTitle;
+            document.getElementById('hero-desc').innerText = data.heroDesc;
+            
+            document.getElementById('diagram-badge').innerText = data.diagramBadge;
+            document.getElementById('diagram-title').innerText = data.diagramTitle;
+            document.getElementById('diagram-subtitle').innerText = data.diagramSubtitle;
+            document.getElementById('diag-l1').innerText = data.diagL1;
+            document.getElementById('diag-l2').innerText = data.diagL2;
+            document.getElementById('diag-l3').innerText = data.diagL3;
+            document.getElementById('diag-l4').innerText = data.diagL4;
+            document.getElementById('diag-l5').innerText = data.diagL5;
+            document.getElementById('diag-l6').innerText = data.diagL6;
+
+            document.getElementById('badge-moderate').innerText = data.badgeModerate;
+            document.getElementById('bien-summary').innerText = data.bienSummary;
+            document.getElementById('lbl-golden-rule').innerText = data.lblGoldenRule;
+            document.getElementById('bien-rule').innerHTML = data.bienRule;
+            document.getElementById('bien-ex-desc').innerText = data.bienExDesc;
+
+            document.getElementById('badge-high').innerText = data.badgeHigh;
+            document.getElementById('beaucoup-summary').innerHTML = data.beaucoupSummary;
+            document.getElementById('lbl-golden-rule-2').innerText = data.lblGoldenRule;
+            document.getElementById('beaucoup-rule').innerText = data.beaucoupRule;
+            document.getElementById('beaucoup-ex-desc').innerText = data.beaucoupExDesc;
+
+            document.getElementById('badge-amplifier').innerText = data.badgeAmplifier;
+            document.getElementById('tres-card-summary').innerText = data.tresCardSummary;
+            document.getElementById('lbl-tres-rule').innerText = data.lblTresRule;
+            document.getElementById('tres-card-rule').innerHTML = data.tresCardRule;
+            document.getElementById('tres-ex-desc').innerText = data.tresExDesc;
+
+            document.getElementById('badge-excess').innerText = data.badgeExcess;
+            document.getElementById('trop-card-summary').innerText = data.tropCardSummary;
+            document.getElementById('lbl-trop-rule').innerText = data.lblTropRule;
+            document.getElementById('trop-card-rule').innerHTML = data.tropCardRule;
+            document.getElementById('trop-ex-desc').innerText = data.tropExDesc;
+
+            document.getElementById('tres-summary').innerHTML = data.tresSummary;
+            document.getElementById('lbl-correction').innerText = data.lblCorrection;
+            document.getElementById('tres-rule').innerHTML = data.tresRule;
+
+            document.getElementById('matrix-tag').innerText = data.matrixTag;
+            document.getElementById('matrix-heading').innerText = data.matrixHeading;
+            document.getElementById('matrix-subheading').innerText = data.matrixSubheading;
+            document.getElementById('nuance-bien-desc').innerHTML = data.nuanceBienDesc;
+            document.getElementById('nuance-beaucoup-desc').innerText = data.nuanceBeaucoupDesc;
+            document.getElementById('terminal-title').innerText = data.terminalTitle;
+            document.getElementById('terminal-text').innerHTML = data.terminalText;
+
+            document.getElementById('toolkit-tag').innerText = data.toolkitTag;
+            document.getElementById('expressions-title').innerText = data.expressionsTitle;
+            document.getElementById('expressions-subtitle').innerText = data.expressionsSubtitle;
+            document.getElementById('th-expr').innerText = data.thExpr;
+            document.getElementById('th-meaning').innerText = data.thMeaning;
+            document.getElementById('th-example').innerText = data.thExample;
+
+            document.getElementById('scenarios-tag').innerText = data.scenariosTag;
+            document.getElementById('extra-section-title').innerText = data.extraSectionTitle;
+            document.getElementById('extra-section-sub').innerText = data.extraSectionSub;
+            document.getElementById('footer-text').innerText = data.footerText;
+
+            // Render Table
+            const tableBody = document.getElementById('expressions-table-body');
+            tableBody.innerHTML = '';
+            data.expressions.forEach(item => {
+                const row = document.createElement('tr');
+                row.className = "hover:bg-indigo-50/40 transition-colors";
+                row.innerHTML = `
+                    <td class="p-5 font-bold text-indigo-900">${item.expr}</td>
+                    <td class="p-5 text-slate-600">${item.meaning}</td>
+                    <td class="p-5 italic text-indigo-700/80 font-medium">${item.example}</td>
+                `;
+                tableBody.appendChild(row);
+            });
+
+            // Render Scenarios Grid
+            const extraGrid = document.getElementById('extra-examples-grid');
+            extraGrid.innerHTML = '';
+            data.extraExamples.forEach(ex => {
+                const card = document.createElement('div');
+                card.className = "bg-white rounded-3xl p-6 border-2 border-indigo-100 shadow-lg hover:shadow-xl transition-all flex flex-col justify-between group";
+                card.innerHTML = `
+                    <div class="space-y-4">
+                        <span class="text-xs font-black uppercase tracking-wider text-indigo-600 bg-indigo-50 px-3 py-1.5 rounded-xl inline-block border border-indigo-100">${ex.tag}</span>
+                        <h4 class="font-black text-xl text-slate-900">${ex.title}</h4>
+                        <p class="text-sm italic font-semibold text-slate-800 bg-slate-50 p-4 rounded-2xl border border-slate-100">${ex.french}</p>
+                        <p class="text-xs text-slate-500 font-medium">${ex.translation}</p>
+                    </div>
+                    <div class="border-t border-indigo-50 pt-4 mt-6">
+                        <p class="text-xs text-slate-600 leading-relaxed font-medium">${ex.explanation}</p>
+                    </div>
+                `;
+                extraGrid.appendChild(card);
+            });
+
+            renderQuiz();
+        }
+
+        function highlightNode(nodeKey) {
+            const detail = spectrumDetails[currentLang][nodeKey];
+            const box = document.getElementById('spectrum-detail-box');
+            document.getElementById('spec-title').innerText = detail.title;
+            document.getElementById('spec-desc').innerText = detail.desc;
+            box.className = "bg-white/20 border-2 border-white/40 p-5 rounded-2xl backdrop-blur-md text-sm text-white flex items-start gap-4 transform scale-[1.02] shadow-lg transition-all";
+            setTimeout(() => {
+                box.className = "bg-white/10 border border-white/20 p-5 rounded-2xl backdrop-blur-md text-sm text-indigo-100 flex items-start gap-4 transition-all";
+            }, 600);
+        }
+
+        function renderQuiz() {
+            const qData = quizzes[currentQuizIndex][currentLang];
+            document.getElementById('quiz-question').innerText = qData.q;
+            const optContainer = document.getElementById('quiz-options');
+            optContainer.innerHTML = '';
+            qData.options.forEach((opt, idx) => {
+                const btn = document.createElement('button');
+                btn.className = "bg-white/20 hover:bg-white/30 text-white font-bold p-3.5 rounded-2xl border border-white/25 transition-all text-sm text-center shadow-md";
+                btn.innerText = opt;
+                btn.onclick = () => checkQuiz(idx, qData.correct, qData.feedback);
+                optContainer.appendChild(btn);
+            });
+            document.getElementById('quiz-feedback').className = "hidden";
+        }
+
+        function checkQuiz(selected, correct, feedbackText) {
+            const fb = document.getElementById('quiz-feedback');
+            fb.classList.remove('hidden');
+            if (selected === correct) {
+                fb.className = "text-sm font-bold p-4 rounded-2xl bg-emerald-500/30 border border-emerald-400 text-emerald-100";
+                fb.innerText = "✅ " + feedbackText;
+                score++;
+                document.getElementById('score-val').innerText = score;
+                setTimeout(() => {
+                    currentQuizIndex = (currentQuizIndex + 1) % quizzes.length;
+                    renderQuiz();
+                }, 2500);
+            } else {
+                fb.className = "text-sm font-bold p-4 rounded-2xl bg-rose-500/30 border border-rose-400 text-rose-100";
+                fb.innerText = "❌ Incorrect. Try again!";
+            }
+        }
+
+        // Initialize on load with English
+        window.onload = function() {
+            switchLanguage('en');
+        }
+    </script>
+</body>
+</html>
